@@ -135,11 +135,40 @@ export const info = {
     },
   ],
 };
-export const hbsCode =
-  "<p>Hello, my name is {{name}}. I am from {{hometown}}. I have " +
-  "{{kids.length}} kids:</p>" +
-  "<ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}</ul>";
+// export const hbsCode =
+//   "<p>Hello, my name is {{name}}. I am from {{hometown}}. I have " +
+//   "{{kids.length}} kids:</p>" +
+//   "<ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}</ul>";
+export const hbsCode = `
+    <div class="w-1/2 h-screen shadow-2xl flex flex-row">
+    <section class="flex flex-col items-center w-screen gap-1 py-4 bg-green-800 text-white">
+    <div class="bg-white rounded-full w-20 h-20 mb-4"></div>
+    <h1 class="text-lg text-center">Kevin Coto </h1>
+    <span class="text-sm">Md. Developer</span>
+    <h1 class="text-lg text-center mt-20">Education</h1>
+    </section>
+    <main class="flex flex-col bg-white text-black py-4 px-8">
+    <h1 class='text-2xl'>Proffesional Summary</h1>
+    <hr class="my-4 h-0.5 border-t-0 bg-neutral-500 opacity-100 dark:opacity-50" />
+    <p>Recent college graduate with experience in various areas of software engineering,
+        including infrastructure and data analytics. A fast learner who thrives on generating
+        innovative ideas, trouble-shooting and problem-solving, and working with object-ori-
+        ented programming languages including Python and Java.
+    </p>
+    <h1 class='text-2xl mt-8 '>Key Skills</h1>
+    <hr class="my-4 h-0.5 border-t-0 bg-neutral-500 opacity-100 dark:opacity-50" />
+    <ul>
+    <li>• Knowledge of basic coding languages including C++, HTML5, and JavaScript.</li>
+    <li>• Basic knowledge of SQL, NoSQL databases</li>
+    <li> • Knowledgable on Node.js, Spring, Hibernate</li>
+    <li> • Extensive Linux/Unix experience</li>
+    <li>• Software testing (Jest, Chai, Mocha)</li>
+    <li>• CI/CD Basics</li>
+    </ul>
 
+    </main>
+    </div>
+    `;
 export const dataInfo = {
   name: "Alan",
   hometown: "Somewhere, TX",
