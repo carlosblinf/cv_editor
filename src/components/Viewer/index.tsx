@@ -6,6 +6,7 @@ import { render } from "./helper";
 import { useEffect, useState } from "react";
 import useDebounce from "../../utils/debounce";
 import { dataInfo, hbsCode } from "@/utils/data";
+import parse from "html-react-parser";
 
 function Viewer() {
   // const info = store.getState().builder;
@@ -41,13 +42,7 @@ function Viewer() {
         onChange={handleOnChange}
         defaultValue={data.name}
       />
-      {jsx && (
-        <div
-          dangerouslySetInnerHTML={{
-            __html: jsx,
-          }}
-        />
-      )}
+      {jsx && parse(jsx)}
     </div>
   );
 }
