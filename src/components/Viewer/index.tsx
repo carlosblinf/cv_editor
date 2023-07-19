@@ -8,17 +8,18 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import useDebounce from "../../utils/debounce";
 import { dataInfo, hbsCode } from "../../utils/data";
 import parse from "html-react-parser";
-import { Input, Textarea} from "./tw-mui"
+import { Input, Textarea } from "./tw-mui";
+import Button from "../Button";
+import { makePDF } from "@/utils/api";
 
 interface Profile {
-  name: string,
-  type: string,
-  profession: string,
-  profileImageURL: string,
-  display: boolean,
-  about: string,
+  name: string;
+  type: string;
+  profession: string;
+  profileImageURL: string;
+  display: boolean;
+  about: string;
 }
-
 
 function Viewer() {
   // const info = store.getState().builder;
@@ -28,38 +29,31 @@ function Viewer() {
   const [jsx, setJsx] = useState<string>("");
   const debounceQuery = useDebounce(data, 350);
 
-  
   useEffect(() => {
     save(debounceQuery);
   }, [debounceQuery]);
 
-   async function save(toSave: unknown) {
+  async function save(toSave: unknown) {
     const dataSaved = await render(toSave, hbsCode);
     setJsx(dataSaved);
   }
 
-  const updateData = (
-    event: 
-    HTMLInputElement,
-    type: string
-    
-  ) => {
-   const name: keyof Profile  = event.name as string
-    const value = event.value
+  const updateData = (event: HTMLInputElement, type: string) => {
+    const name: keyof Profile = event.name as string;
+    const value = event.value;
     setData((prevData) => {
-      const newData = {...prevData}
+      const newData = { ...prevData };
       // if(ariaRoleDescription == 'Profile'){
       // newData = value
       // return newData
-      console.log('name:', name)
-      console.log('value', value)
-      console.log('type:', type)
-      
-      newData[type][name] = value
-     
-     return newData
-    }
-    )
+      console.log("name:", name);
+      console.log("value", value);
+      console.log("type:", type);
+
+      newData[type][name] = value;
+
+      return newData;
+    });
   };
 
   async function handleOnClick() {
@@ -68,120 +62,105 @@ function Viewer() {
   }
 
   return (
-    <div
-    className="flex w-screen h-screen bg-indigo-100">
-      <div className="grid w-6/12 grid-cols-2 gap-2 mx-10 my-10 ">
+    <div className="flex w-screen h-screen bg-indigo-100">
+      <div className="grid w-6/12 grid-cols-2 gap-1 mx-10 my-10 ">
         <Input
-          variant="standard" 
+          variant="standard"
           className="max-w-[200px]"
           name="name"
           shrink={true}
           aria-label="Profile"
           label="Nombre"
           aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target, 'Profile')}
-          defaultValue={data.Profile.name}
+          onChange={(e) => updateData(e.target, "Profile")}
+          defaultValue={data.profile.name}
         />
-         
-        
 
-         <Input         
-          variant="standard" 
+        <Input
+          variant="standard"
           name="profession"
           className="max-w-[200px]"
-
           label="Titulo"
-          
           aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target, 'Profile')}
-          defaultValue={data.Profile.profession}
+          onChange={(e) => updateData(e.target, "Profile")}
+          defaultValue={data.profile.profession}
         />
-   
-       
-         
-         <Input
-          variant="standard" 
+
+        <Input
+          variant="standard"
           name="profileImageURL"
           className="max-w-[200px]"
-
           label="Imagen:URL"
           aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target, 'Profile')}
-          defaultValue={data.Profile.profileImageURL}
+          onChange={(e) => updateData(e.target, "Profile")}
+          defaultValue={data.profile.profileImageURL}
         />
-      
-      <Input       
-          variant="standard" 
+
+        <Input
+          variant="standard"
           name="degree"
           className="max-w-[200px]"
-
           label="Universidad"
-          
           aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target, 'Education')}
-          defaultValue={data.Education.degree}
+          onChange={(e) => updateData(e.target, "Education")}
+          defaultValue={data.education.degree}
         />
 
-         <Input       
-          variant="standard" 
+        <Input
+          variant="standard"
           name="date"
           className="max-w-[200px]"
-
           label="Fecha"
-          
           aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target, 'Education')}
-          defaultValue={data.Education.date}
+          onChange={(e) => updateData(e.target, "Education")}
+          defaultValue={data.education.date}
         />
 
-         <Input
-          variant="standard" 
+        <Input
+          variant="standard"
           name="email"
           className="max-w-[200px]"
           label="Correo"
-          onChange={(e) => updateData(e.target, 'Contact')}
-          defaultValue={data.Contact.email}
+          onChange={(e) => updateData(e.target, "Contact")}
+          defaultValue={data.contact.email}
         />
-     
 
         <Input
-          variant="standard" 
+          variant="standard"
           name="cite"
           className="max-w-[200px]"
           label="Website"
-          onChange={(e) => updateData(e.target, 'Contact')}
-          defaultValue={data.Contact.cite}
+          onChange={(e) => updateData(e.target, "Contact")}
+          defaultValue={data.contact.cite}
         />
-       
-        
+
         <Input
-          variant="standard" 
+          variant="standard"
           name="phone"
           className="max-w-[200px]"
           label="Teléfono"
-          onChange={(e) => updateData(e.target, 'Contact')}
-          defaultValue={data.Contact.phone}
+          onChange={(e) => updateData(e.target, "Contact")}
+          defaultValue={data.contact.phone}
         />
-         <Textarea         
+        <Textarea
           variant="outlined"
           name="about"
           label="Resumen"
-          
           aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target, 'EmploymentHistory')}
-          defaultValue={data.EmploymentHistory.about}
-          />
-       
-         
-          <Textarea
-          variant="outlined" 
+          onChange={(e) => updateData(e.target, "EmploymentHistory")}
+          defaultValue={data.employmentHistory.about}
+        />
+
+        <Textarea
+          variant="outlined"
           name="text"
           className=""
           label="Tus habilidades"
-          onChange={(e) => updateData(e.target, 'KeySkills')}
-          defaultValue={data.KeySkills.text}
-          />
-          </div>
+          onChange={(e) => updateData(e.target, "KeySkills")}
+          defaultValue={data.keySkills.text}
+        />
+        <Button handleOnClick={handleOnClick} />
+      </div>
 
       {jsx && parse(jsx)}
     </div>

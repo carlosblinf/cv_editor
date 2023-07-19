@@ -6,7 +6,7 @@
 export const hbsCode = `
     <div class="max-w-[50%] h-auto shadow-3xl flex flex-row my-5 mr-5 -px-10 -py-10 bg-white">
       <aside class="flex flex-col items-center w-screen gap-1 py-6 bg-green-700 text-white">
-      {{#with Profile as | profile |}}
+      {{#with profile as | profile |}}
         <section class="text-center flex flex-col items-center">
        
           <img src="{{profile.profileImageURL}}" class="rounded-full border-4 border-white w-20 h-20 mb-4 bg-white"></img>
@@ -15,14 +15,14 @@ export const hbsCode = `
           <span class="text-sm">{{profile.profession}}</span>
         </section>
       {{/with}}
-      {{#with Education as | education |}}
+      {{#with education as | education |}}
         <section class="text-center mt-20">
           <h1 class="text-lg">{{education.header}}</h1>
           <div>{{education.degree}}</div>
           <div class='block text-xs'>{{education.date}}</div>
         </section>
       {{/with}}
-      {{#with Contact as | contact |}}
+      {{#with contact as | contact |}}
         <section class="text-center mt-20">
           <h1 class="text-lg">{{contact.header}}</h1>
           <ul class="text-left">
@@ -34,14 +34,14 @@ export const hbsCode = `
       {{/with}}
       </aside>
       <main class="flex flex-col bg-white text-black py-6 px-8">
-      {{#with EmploymentHistory as | proffesional |}}
+      {{#with employmentHistory as | proffesional |}}
         <section>
           <h1 class='text-2xl'>{{proffesional.header}}</h1>
           <hr class="my-2 h-0.5 border-t-0 bg-neutral-500 opacity-100 dark:opacity-50" />
           <p>{{proffesional.about}}</p>
         </section>
       {{/with}}
-      {{#with KeySkills as | skills |}}
+      {{#with keySkills as | skills |}}
         <section class='mt-8'>
           <h1 class='text-2xl'>{{skills.header}}</h1>
           <hr class="my-2 h-0.5 border-t-0 bg-neutral-500 opacity-100 dark:opacity-50" />
