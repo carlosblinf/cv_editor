@@ -23,7 +23,7 @@ export const BuilderSlice = createSlice({
       const targetIndex = state.components.findIndex(
         (elem) => elem?.type === item.type
       );
-      state.components[targetIndex] = item;
+      Object.assign(state.components[targetIndex], item);
       state.force++;
     },
     // increment: (state: BuilderState, action: PayloadAction<number>) => {

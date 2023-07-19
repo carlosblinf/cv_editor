@@ -3,10 +3,14 @@ import TextInput from "./TextInput";
 import { useState, useContext } from "react";
 
 import ToggleButton from "./ToggleButton";
+import { useAppDispatch, useAppSelector } from "@/store";
+import { getData } from "@/utils/dataHooks";
 
 const Profile = () => {
   // const ctx = useContext(BuilderContext);
-  const [profile, setProfile] = useState();
+  const builder = useAppSelector((state) => state.builder);
+  const dspatch = useAppDispatch();
+  const [profile, setProfile] = useState(getData(builder, "Profile"));
   // ctx.getComponentData("Profile")
 
   return (
@@ -16,7 +20,7 @@ const Profile = () => {
         handleChange={(e) => setProfile({ ...profile, name: e.target.value })}
         style="pb-3"
         rows="2"
-        // defaultValue={profile.name}
+        defaultValue={profile.name}
       />
 
       <TextInput
@@ -25,7 +29,7 @@ const Profile = () => {
           setProfile({ ...profile, profession: e.target.value })
         }
         style="pb-3"
-        // defaultValue={profile.profession}
+        defaultValue={profile.profession}
       />
       <div className="flex flex-row">
         <TextInput
@@ -34,10 +38,10 @@ const Profile = () => {
             setProfile({ ...profile, profileImageURL: e.target.value })
           }
           style="pb-3 pr-3"
-          // defaultValue={profile.profileImageURL}
+          defaultValue={profile.profileImageURL}
         />
         <ToggleButton
-          // defaultValue={profile.display}
+          defaultValue={profile.display}
           handleChange={(name, prop, isEnabled) => {
             // ctx.updateInfo({ ...profile, display: isEnabled });
           }}

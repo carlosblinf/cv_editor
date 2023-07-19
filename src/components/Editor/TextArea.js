@@ -5,8 +5,8 @@ const TextArea = ({
   label,
   handleChange,
   defaultValue,
-  rows,
-  isDisabled,
+  rows = 8,
+  isDisabled = false,
 }) => {
   return (
     <div className={`w-full ${style}`}>

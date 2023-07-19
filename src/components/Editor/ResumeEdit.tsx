@@ -11,14 +11,20 @@ import Projects from "./Projects";
 import Profile from "./Profile";
 import Contact from "./Contact";
 import Certifications from "./Certifications";
+import { useAppDispatch, useAppSelector } from "@/store";
+import { getData } from "@/utils/dataHooks";
 const ResumeEdit = () => {
   // const ctx = useContext(BuilderContext)
+  const builder = useAppSelector((state) => state.builder);
+  const dspatch = useAppDispatch();
+
   const [selected, setSelect] = useState("Education");
   const [tabSelected, setTabSelected] = useState("About");
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelect(e.target.value);
   };
   // const profile = ctx.getComponentData('Profile')
+  const profile = getData(builder, "Profile");
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // ctx.updateInfo({ ...profile, about: e.target.value })
   };
@@ -31,20 +37,20 @@ const ResumeEdit = () => {
           <TextSelect
             options={[
               "Education",
-              "Skills",
-              "Certifications",
+              // "Skills",
+              // "Certifications",
               "Contact",
-              "Socials",
+              // "Socials",
             ]}
             handleChange={handleSelect}
             style=" pb-3"
           />
 
-          {selected === "Socials" && <Socials />}
+          {/* {selected === "Socials" && <Socials />} */}
           {selected === "Education" && <Education />}
-          {selected === "Skills" && <Skills />}
+          {/* {selected === "Skills" && <Skills />} */}
           {selected === "Contact" && <Contact />}
-          {selected === "Certifications" && <Certifications />}
+          {/* {selected === "Certifications" && <Certifications />} */}
         </div>
 
         <div className="w-full">
@@ -70,7 +76,7 @@ const ResumeEdit = () => {
               >
                 Skills
               </li>
-              <li
+              {/* <li
                 className={`py-2 mt-2 px-6 border-gray-300 border ${
                   tabSelected === "Projects"
                     ? "bg-white"
@@ -79,20 +85,21 @@ const ResumeEdit = () => {
                 onClick={() => setTabSelected("Projects")}
               >
                 Projects
-              </li>
+              </li> */}
             </ul>
           </div>
           {tabSelected === "About" && (
             <TextArea
+              name="about"
               placeholder="About"
               style="px-5 py-3"
               label="Profile"
-              defaultValue={""}
+              defaultValue={profile?.about}
               handleChange={handleChange}
             />
           )}
           {tabSelected === "Skills" && <KeySkills />}
-          {tabSelected === "Projects" && <Projects />}
+          {/* {tabSelected === "Projects" && <Projects />} */}
 
           <EmploymentHistory />
         </div>

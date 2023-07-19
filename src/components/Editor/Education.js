@@ -1,14 +1,19 @@
 import { useState, useContext } from "react";
 import ActionMenu from "./ActionMenu";
 import EducationItem from "./EducationItem";
+import { useAppDispatch, useAppSelector } from "@/store";
+import { getData } from "@/utils/dataHooks";
+import { updateInfo } from "@/store/builder/builderSlice";
 
 const Education = () => {
   // const ctx = useContext(BuilderContext)
+  const builder = useAppSelector((state) => state.builder);
+  const dispatch = useAppDispatch();
   const newItem = {
     degree: "Software Engineering - University of Sydney",
     date: "Mar 2017 - Dec 2019",
   };
-  const [education, setEducation] = useState();
+  const [education, setEducation] = useState(getData(builder, "Education"));
   // ctx.getComponentData('Education')
   const handleChange = (i, e) => {
     const targetName = e.target.name;
@@ -17,8 +22,8 @@ const Education = () => {
       [targetName]: e.target.value,
     };
     education.items.splice(i, 1, modifiedItem);
-    handleSaveClick();
-    //ctx.updateInfo(education)
+    // handleSaveClick();
+    // dispatch(updateInfo(education));
   };
   const handleAddClick = () => {
     setEducation({
@@ -36,6 +41,9 @@ const Education = () => {
   };
   // const handleSaveClick = () => ctx.updateInfo(education)
   const handleSaveClick = () => {};
+  // const handleSaveClick = () => {
+  //   dispatch(updateInfo(education));
+  // };
 
   return (
     <div className="pt-6">

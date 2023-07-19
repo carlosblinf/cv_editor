@@ -1,10 +1,14 @@
 import { useContext, useState } from "react";
 import TextArea from "./TextArea";
 import ToggleButton from "./ToggleButton";
+import { getData } from "@/utils/dataHooks";
+import { useAppDispatch, useAppSelector } from "@/store";
 const KeySkills = () => {
   // const ctx = useContext(BuilderContext)
+  const builder = useAppSelector((state) => state.builder);
+  const dspatch = useAppDispatch();
 
-  const [skills, setSkills] = useState();
+  const [skills, setSkills] = useState(getData(builder, "KeySkills"));
   // ctx.getComponentData("KeySkills")
   const handleChange = (e) => {
     setSkills({ ...skills, text: e.target.value });

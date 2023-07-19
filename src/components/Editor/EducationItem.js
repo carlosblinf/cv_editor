@@ -8,7 +8,7 @@ const EducationItem = ({ index, data, handleChange }) => {
         rows="2"
         style="pb-2"
         name="degree"
-        // defaultValue={data.degree}
+        defaultValue={data.degree}
         handleChange={(e) => handleChange(index, e)}
       />
 
@@ -16,7 +16,7 @@ const EducationItem = ({ index, data, handleChange }) => {
         placeholder="Date "
         name="date"
         style="pb-2"
-        // defaultValue={data.date}
+        defaultValue={data.date}
         handleChange={(e) => handleChange(index, e)}
       />
     </div>
