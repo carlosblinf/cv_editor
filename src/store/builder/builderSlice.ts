@@ -2,15 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import Builder from "@/components/Builder";
 import { InfoComponent } from "@/utils/types";
-import { info } from "@/utils/data";
+// import { info } from "@/utils/data";
 
 export interface BuilderState {
-  components: InfoComponent[];
+  // components: InfoComponent[];
   force: number;
 }
 
 const initialState: BuilderState = {
-  components: info.components,
+  // components: info.components,
   force: 0,
 };
 
@@ -19,11 +19,11 @@ export const BuilderSlice = createSlice({
   initialState,
   reducers: {
     updateInfo: (state: BuilderState, action: PayloadAction<InfoComponent>) => {
-      const item = action.payload;
-      const targetIndex = state.components.findIndex(
-        (elem) => elem?.type === item.type
-      );
-      state.components[targetIndex] = item;
+      // const item = action.payload;
+      // const targetIndex = state.components.findIndex(
+      //   (elem) => elem?.type === item.type
+      // );
+      // state.components[targetIndex] = item;
       state.force++;
     },
     // increment: (state: BuilderState, action: PayloadAction<number>) => {
