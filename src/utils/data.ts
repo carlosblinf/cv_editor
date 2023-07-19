@@ -3,7 +3,7 @@
 //   "{{kids.length}} kids:</p>" +
 //   "<ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}</ul>";
 export const hbsCode = `
-    <div class="max-w-[50vw] h-full shadow-2xl flex flex-row">
+    <div class="max-w-[50%] h-full shadow-2xl flex flex-row">
       <aside class="flex flex-col items-center w-screen gap-1 py-6 bg-green-800 text-white">
       {{#with Profile as | profile |}}
         <section class="text-center flex flex-col items-center">
