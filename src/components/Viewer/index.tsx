@@ -10,7 +10,7 @@ import { dataInfo, hbsCode } from "../../utils/data";
 import parse from "html-react-parser";
 import { Input, Textarea } from "./tw-mui";
 import Button from "../Button";
-import { makePDF } from "@/utils/api";
+import { makePDF } from "../../utils/api";
 
 interface profile {
   name: string;
