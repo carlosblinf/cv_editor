@@ -81,28 +81,29 @@ export const dataInfo = {
     header: "Key Skills",
     type: "KeySkills",
     display: true,
-    items: [
-      {
-        text: "• Knowledge of basic coding languages including C++, HTML5, and JavaScript.",
-        level: "25%",
-      },
-      {
-        text: "• Basic knowledge of  SQL, NoSQL databases",
-        level: "25%",
-      },
-      {
-        text: "• Knowledgable on Node.js, Spring, Hibernate",
-        level: "25%",
-      },
-      {
-        text: "• Extensive Linux/Unix experience",
-        level: "25%",
-      },
-      {
-        text: "• Software testing (Jest, Chai, Mocha)",
-        level: "25%",
-      },
-    ],
+    text: "• Knowledge of basic coding languages including C++, HTML5, and JavaScript.\n• Basic knowledge of  SQL, NoSQL databases\n• Knowledgable on Node.js, Spring, Hibernate\n• Extensive Linux/Unix experience\n• Software testing (Jest, Chai, Mocha)\n• CI/CD Basics ",
+    // items: [
+    //   {
+    //     text: "• Knowledge of basic coding languages including C++, HTML5, and JavaScript.",
+    //     level: "25%",
+    //   },
+    //   {
+    //     text: "• Basic knowledge of  SQL, NoSQL databases",
+    //     level: "25%",
+    //   },
+    //   {
+    //     text: "• Knowledgable on Node.js, Spring, Hibernate",
+    //     level: "25%",
+    //   },
+    //   {
+    //     text: "• Extensive Linux/Unix experience",
+    //     level: "25%",
+    //   },
+    //   {
+    //     text: "• Software testing (Jest, Chai, Mocha)",
+    //     level: "25%",
+    //   },
+    // ],
   },
   EmploymentHistory: {
     header: "Proffesional Summary",
