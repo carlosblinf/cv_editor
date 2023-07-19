@@ -1,7 +1,7 @@
 // const API_URL = "https://cvcrea.alfredoacservices.com";
 const API_URL = "http://192.168.1.109:3000";
 
-export async function makePDF(data: any) {
+export async function makePDF(data: any, title: string = "SamplePDF") {
   const res = fetch(API_URL + "/generator", {
     body: data,
     headers: {
@@ -15,7 +15,7 @@ export async function makePDF(data: any) {
       // Setting various property values
       let alink = document.createElement("a");
       alink.href = fileURL;
-      alink.download = "SamplePDF.pdf";
+      alink.download = `${title}.pdf`;
       alink.click();
     });
   });
