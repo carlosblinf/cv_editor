@@ -1,5 +1,5 @@
 "use server";
-import Handlebars from "handlebars";
+import Handlebars from "handlebars/dist/cjs/handlebars";
 
 export async function render(data: any, hbsCode: string) {
   // const hbsCode =

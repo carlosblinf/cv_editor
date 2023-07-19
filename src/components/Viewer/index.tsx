@@ -3,7 +3,7 @@
 import { store, useAppSelector } from "@/store";
 import { updateInfo } from "@/store/builder/builderSlice";
 import { render } from "./helper";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import useDebounce from "../../utils/debounce";
 import { dataInfo, hbsCode } from "@/utils/data";
 import parse from "html-react-parser";
@@ -16,11 +16,12 @@ function Viewer() {
   const [jsx, setJsx] = useState<string>("");
   const debounceQuery = useDebounce(data, 350);
 
+  
   useEffect(() => {
     save(debounceQuery);
   }, [debounceQuery]);
 
-  async function save(toSave: unknown) {
+   async function save(toSave: unknown) {
     const dataSaved = await render(toSave, hbsCode);
     setJsx(dataSaved);
   }
@@ -42,7 +43,9 @@ function Viewer() {
         onChange={handleOnChange}
         defaultValue={data.name}
       />
-      {jsx && parse(jsx)}
+    <div  dangerouslySetInnerHTML={{ __html: jsx }} />
+
+      {/* {jsx && parse(jsx)} */}
     </div>
   );
 }
