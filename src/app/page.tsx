@@ -4,13 +4,7 @@ import Viewer from "@/components/Viewer";
 
 export default function Home() {
   return (
-    <main
-      style={{
-        display: "flex",
-        width: "100vh",
-        height: "100vh",
-      }}
-    >
+    <main>
       {/* <Builder /> */}
       <Viewer />
     </main>
