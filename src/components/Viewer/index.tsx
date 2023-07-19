@@ -64,8 +64,8 @@ function Viewer() {
 
   return (
     <div
-    className="w-screen h-screen flex  ">
-      <div className="w-6/12 grid grid-cols-2 py-10 px-10 bg-blue-gray-100">
+    className="w-screen h-screen flex  bg-indigo-100">
+      <div className="w-6/12 grid grid-cols-2 gap-2 my-10 mx-10 ">
         <Input
           variant="standard" 
           className="max-w-[200px]"
@@ -158,10 +158,8 @@ function Viewer() {
           defaultValue={data.Contact.phone}
         />
          <Textarea         
-          variant="standard" 
+          variant="outlined"
           name="about"
-          className="px-4"
-
           label="Resumen"
           
           aria-roledescription="Profile"
@@ -171,9 +169,9 @@ function Viewer() {
        
          
           <Textarea
-          variant="standard" 
+          variant="outlined" 
           name="text"
-          className="px-4"
+          className=""
           label="Tus habilidades"
           onChange={(e) => updateData(e.target, 'KeySkills')}
           defaultValue={data.KeySkills.text}
