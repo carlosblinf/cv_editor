@@ -3,11 +3,13 @@
 //   "{{kids.length}} kids:</p>" +
 //   "<ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}</ul>";
 export const hbsCode = `
-    <div class="max-w-[50%] h-full shadow-2xl flex flex-row">
-      <aside class="flex flex-col items-center w-screen gap-1 py-6 bg-green-800 text-white">
+    <div class="max-w-[50%] h-full shadow-2xl py-5 flex flex-row">
+      <aside class="flex flex-col items-center w-screen gap-1 py-6 text-red-800 bg-green-800">
       {{#with Profile as | profile |}}
         <section class="text-center flex flex-col items-center">
-          <div class="bg-white rounded-full w-20 h-20 mb-4"></div>
+       
+          <img src="{{Profile.profileImageURL}}" class="rounded-full w-20 h-20 mb-4"></img>
+
           <h1 class="text-lg text-center">{{profile.name}}</h1>
           <span class="text-sm">{{profile.profession}}</span>
         </section>
@@ -58,7 +60,7 @@ export const dataInfo = {
     type: "Profile",
     profession: "Senior Developer",
     profileImageURL:
-      "https://media.licdn.com/dms/image/C4E03AQGVTyjmr0m9EQ/profile-displayphoto-shrink_800_800/0/1662505742816?e=2147483647&v=beta&t=bmTOmjD9wT8PEPfaypfBidbLqdgHOY-RtrzW8CZX9TI",
+      'https://media.licdn.com/dms/image/C4E03AQGVTyjmr0m9EQ/profile-displayphoto-shrink_800_800/0/1662505742816?e=2147483647&v=beta&t=bmTOmjD9wT8PEPfaypfBidbLqdgHOY-RtrzW8CZX9TI',
     display: true,
     about:
       "Recent college graduate with experience in various areas of software engineering, including infrastructure and data analytics. A fast learner who thrives on generating innovative ideas, trouble-shooting and problem-solving, and working with object-oriented programming languages including Python and Java. ",

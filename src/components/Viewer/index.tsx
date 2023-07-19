@@ -6,9 +6,10 @@ import { updateInfo } from "@/store/builder/builderSlice";
 import { render } from "./helper";
 import { useEffect, useLayoutEffect, useState } from "react";
 import useDebounce from "../../utils/debounce";
-import { dataInfo, hbsCode } from "@/utils/data";
+import { dataInfo, hbsCode } from "../../utils/data";
 import parse from "html-react-parser";
-import { Input } from "@material-tailwind/react";
+import { Input } from "./tw-mui"
+
 interface Profile {
   name: string,
   type: string,
@@ -62,8 +63,9 @@ function Viewer() {
   };
 
   return (
-    <div className="w-screen h-screen flex gap-2 ">
-      <div className="w-6/12 justify-center  gap-3 flex gap flex-column my-10 mx-10 ">
+    <div
+    className="w-screen h-screen flex gap-2  ">
+      <div className="w-6/12 justify-center  gap-3 flex gap flex-column py-10 px-10 ">
         <div className="w-1/2 flex flex-col gap-10">
         <Input
           variant="standard" 
