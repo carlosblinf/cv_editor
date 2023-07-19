@@ -41,7 +41,7 @@ function Viewer() {
     HTMLInputElement
     
   ) => {
-    const name: keyof Profile  = event.name as string
+   // const name: keyof Profile  = event.name as string
     const ariaRoleDescription = event.ariaRoleDescription
     const value = event.value
     setData((prevData) => {
@@ -53,7 +53,7 @@ function Viewer() {
       console.log('ariaRole:', ariaRoleDescription)
       console.log('value', value)
       
-      newData.Profile[name] = value
+      newData.Profile.name = value
      
      return newData
     }
@@ -61,17 +61,53 @@ function Viewer() {
   };
 
   return (
-    <div className="w-screen h-screen flex bg-gray-300">
-      <div className="w-1/2">
-      <Input
-        variant="standard" 
-        name="name"
+    <div className="w-screen h-screen flex gap-2 ">
+      <div className="w-6/12 justify-center  gap-3 flex gap flex-column my-10 mx-10 ">
+        <div className="w-1/2 flex flex-col gap-10">
+        <Input
+          variant="standard" 
+          className="max-w-[200px]"
+          name="name"
+          shrink={true}
 
-        label="Nombre"
-        aria-roledescription="Profile"
-        onChange={(e) => updateData(e.target)}
-        defaultValue={data.Profile.name}
-      />
+          label="Nombre"
+          aria-roledescription="Profile"
+          onChange={(e) => updateData(e.target)}
+          defaultValue={data.Profile.name}
+        />
+         <Input
+          variant="standard" 
+          name="name"
+          className="max-w-[200px]"
+
+          label="Nombre"
+          aria-roledescription="Profile"
+          onChange={(e) => updateData(e.target)}
+          defaultValue={data.Profile.name}
+        />
+        </div>
+        <div className="w-1/2 flex flex-col gap-10">
+         <Input         
+          variant="standard" 
+          name="name"
+          className="max-w-[200px]"
+
+          label="Nombre"
+          
+          aria-roledescription="Profile"
+          onChange={(e) => updateData(e.target)}
+          defaultValue={data.Profile.name}
+        />
+         <Input
+          variant="standard" 
+          name="name"
+          className="max-w-[200px]"
+          label="Nombre"
+          aria-roledescription="Profile"
+          onChange={(e) => updateData(e.target)}
+          defaultValue={data.Profile.name}
+        />
+        </div>
       </div>
 
       {jsx && parse(jsx)}
