@@ -43,9 +43,8 @@ function Viewer() {
         onChange={handleOnChange}
         defaultValue={data.name}
       />
-    <div  dangerouslySetInnerHTML={{ __html: jsx }} />
 
-      {/* {jsx && parse(jsx)} */}
+      {jsx && parse(jsx)}
     </div>
   );
 }
