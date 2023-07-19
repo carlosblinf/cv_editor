@@ -11,7 +11,7 @@ export default function Home() {
         height: "100vh",
       }}
     >
-      <Builder />
+      {/* <Builder /> */}
       <Viewer />
     </main>
   );
