@@ -20,18 +20,17 @@ interface Profile {
 
 function Viewer() {
   // const info = store.getState().builder;
-  // const builder = useAppSelector((state) => state.builder);
+  const builder = useAppSelector((state) => state.builder);
 
   const [data, setData] = useState(dataInfo);
   const [jsx, setJsx] = useState<string>("");
   const debounceQuery = useDebounce(data, 350);
 
-  
   useEffect(() => {
     save(debounceQuery);
   }, [debounceQuery]);
 
-   async function save(toSave: unknown) {
+  async function save(toSave: unknown) {
     const dataSaved = await render(toSave, hbsCode);
     setJsx(dataSaved);
   }
@@ -61,18 +60,14 @@ function Viewer() {
   };
 
   return (
-    <div className="w-screen h-screen flex bg-gray-300">
-      <div className="w-1/2">
-      <Input
-        variant="standard" 
+    <div className="flex flex-col h-full col-span-2 bg-gray-50">
+      <h1>Viewer</h1>
+      {/* <input
+        placeholder="Nombre"
         name="name"
-
-        label="Nombre"
-        aria-roledescription="Profile"
-        onChange={(e) => updateData(e.target)}
-        defaultValue={data.Profile.name}
-      />
-      </div>
+        onChange={handleOnChange}
+        defaultValue={data.name}
+      /> */}
 
       {jsx && parse(jsx)}
     </div>
