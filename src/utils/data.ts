@@ -143,7 +143,7 @@ export const hbsCode = `
     <div class="w-1/2 h-screen shadow-2xl flex flex-row">
     <section class="flex flex-col items-center w-screen gap-1 py-4 bg-green-800 text-white">
     <div class="bg-white rounded-full w-20 h-20 mb-4"></div>
-    <h1 class="text-lg text-center">Kevin Coto </h1>
+    <h1 class="text-lg text-center">{{name}}</h1>
     <span class="text-sm">Md. Developer</span>
     <h1 class="text-lg text-center mt-20">Education</h1>
     </section>
