@@ -8,7 +8,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import useDebounce from "../../utils/debounce";
 import { dataInfo, hbsCode } from "../../utils/data";
 import parse from "html-react-parser";
-import { Input } from "./tw-mui"
+import { Input, Textarea} from "./tw-mui"
 
 interface Profile {
   name: string,
@@ -69,9 +69,8 @@ function Viewer() {
 
   return (
     <div
-    className="flex w-screen h-screen gap-2 ">
-      <div className="flex justify-center w-6/12 gap-3 px-10 py-10 gap flex-column ">
-        <div className="flex flex-col w-1/2 gap-10">
+    className="flex w-screen h-screen bg-indigo-100">
+      <div className="grid w-6/12 grid-cols-2 gap-2 mx-10 my-10 ">
         <Input
           variant="standard" 
           className="max-w-[200px]"
@@ -83,18 +82,9 @@ function Viewer() {
           onChange={(e) => updateData(e.target, 'Profile')}
           defaultValue={data.Profile.name}
         />
-         <Input
-          variant="standard" 
-          name="profileImageURL"
-          className="max-w-[200px]"
+         
+        
 
-          label="Imagen:URL"
-          aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target, 'Profile')}
-          defaultValue={data.Profile.profileImageURL}
-        />
-        </div>
-        <div className="flex flex-col w-1/2 gap-10">
          <Input         
           variant="standard" 
           name="profession"
@@ -106,17 +96,92 @@ function Viewer() {
           onChange={(e) => updateData(e.target, 'Profile')}
           defaultValue={data.Profile.profession}
         />
+   
+       
+         
          <Input
           variant="standard" 
-          name="name"
+          name="profileImageURL"
           className="max-w-[200px]"
-          label="Nombre"
+
+          label="Imagen:URL"
           aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target)}
-          defaultValue={data.Profile.name}
+          onChange={(e) => updateData(e.target, 'Profile')}
+          defaultValue={data.Profile.profileImageURL}
         />
-        </div>
-      </div>
+      
+      <Input       
+          variant="standard" 
+          name="degree"
+          className="max-w-[200px]"
+
+          label="Universidad"
+          
+          aria-roledescription="Profile"
+          onChange={(e) => updateData(e.target, 'Education')}
+          defaultValue={data.Education.degree}
+        />
+
+         <Input       
+          variant="standard" 
+          name="date"
+          className="max-w-[200px]"
+
+          label="Fecha"
+          
+          aria-roledescription="Profile"
+          onChange={(e) => updateData(e.target, 'Education')}
+          defaultValue={data.Education.date}
+        />
+
+         <Input
+          variant="standard" 
+          name="email"
+          className="max-w-[200px]"
+          label="Correo"
+          onChange={(e) => updateData(e.target, 'Contact')}
+          defaultValue={data.Contact.email}
+        />
+     
+
+        <Input
+          variant="standard" 
+          name="cite"
+          className="max-w-[200px]"
+          label="Website"
+          onChange={(e) => updateData(e.target, 'Contact')}
+          defaultValue={data.Contact.cite}
+        />
+       
+        
+        <Input
+          variant="standard" 
+          name="phone"
+          className="max-w-[200px]"
+          label="Teléfono"
+          onChange={(e) => updateData(e.target, 'Contact')}
+          defaultValue={data.Contact.phone}
+        />
+         <Textarea         
+          variant="outlined"
+          name="about"
+          label="Resumen"
+          
+          aria-roledescription="Profile"
+          onChange={(e) => updateData(e.target, 'EmploymentHistory')}
+          defaultValue={data.EmploymentHistory.about}
+          />
+       
+         
+          <Textarea
+          variant="outlined" 
+          name="text"
+          className=""
+          label="Tus habilidades"
+          onChange={(e) => updateData(e.target, 'KeySkills')}
+          defaultValue={data.KeySkills.text}
+          />
+          </div>
 
       {jsx && parse(jsx)}
     </div>
