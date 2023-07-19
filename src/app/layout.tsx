@@ -1,3 +1,4 @@
+import { ThemeProvider } from '../components/Viewer/tw-mui'
 import './tailwind.css'
 import type { Metadata } from 'next'
 
@@ -15,8 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <h1 className='text-4xl text-indigo-500'>Layout</h1>
-        {children}
+      <ThemeProvider>
+      {children}
+      </ThemeProvider>
+    
       </body>
     </html>
   )
