@@ -12,7 +12,7 @@ import { Input, Textarea } from "./tw-mui";
 import Button from "../Button";
 import { makePDF } from "@/utils/api";
 
-interface Profile {
+interface profile {
   name: string;
   type: string;
   profession: string;
@@ -39,11 +39,11 @@ function Viewer() {
   }
 
   const updateData = (event: HTMLInputElement, type: string) => {
-    const name: keyof Profile = event.name as string;
+    const name: keyof profile = event.name as string;
     const value = event.value;
     setData((prevData) => {
       const newData = { ...prevData };
-      // if(ariaRoleDescription == 'Profile'){
+      // if(ariaRoleDescription == 'profile'){
       // newData = value
       // return newData
       console.log("name:", name);
@@ -69,10 +69,10 @@ function Viewer() {
           className="max-w-[200px]"
           name="name"
           shrink={true}
-          aria-label="Profile"
+          aria-label="profile"
           label="Nombre"
-          aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target, "Profile")}
+          aria-roledescription="profile"
+          onChange={(e) => updateData(e.target, "profile")}
           defaultValue={data.profile.name}
         />
 
@@ -81,8 +81,8 @@ function Viewer() {
           name="profession"
           className="max-w-[200px]"
           label="Titulo"
-          aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target, "Profile")}
+          aria-roledescription="profile"
+          onChange={(e) => updateData(e.target, "profile")}
           defaultValue={data.profile.profession}
         />
 
@@ -91,8 +91,8 @@ function Viewer() {
           name="profileImageURL"
           className="max-w-[200px]"
           label="Imagen:URL"
-          aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target, "Profile")}
+          aria-roledescription="profile"
+          onChange={(e) => updateData(e.target, "profile")}
           defaultValue={data.profile.profileImageURL}
         />
 
@@ -101,7 +101,7 @@ function Viewer() {
           name="degree"
           className="max-w-[200px]"
           label="Universidad"
-          aria-roledescription="Profile"
+          aria-roledescription="profile"
           onChange={(e) => updateData(e.target, "Education")}
           defaultValue={data.education.degree}
         />
@@ -111,7 +111,7 @@ function Viewer() {
           name="date"
           className="max-w-[200px]"
           label="Fecha"
-          aria-roledescription="Profile"
+          aria-roledescription="profile"
           onChange={(e) => updateData(e.target, "Education")}
           defaultValue={data.education.date}
         />
@@ -121,7 +121,7 @@ function Viewer() {
           name="email"
           className="max-w-[200px]"
           label="Correo"
-          onChange={(e) => updateData(e.target, "Contact")}
+          onChange={(e) => updateData(e.target, "contact")}
           defaultValue={data.contact.email}
         />
 
@@ -130,7 +130,7 @@ function Viewer() {
           name="cite"
           className="max-w-[200px]"
           label="Website"
-          onChange={(e) => updateData(e.target, "Contact")}
+          onChange={(e) => updateData(e.target, "contact")}
           defaultValue={data.contact.cite}
         />
 
@@ -139,15 +139,15 @@ function Viewer() {
           name="phone"
           className="max-w-[200px]"
           label="Teléfono"
-          onChange={(e) => updateData(e.target, "Contact")}
+          onChange={(e) => updateData(e.target, "contact")}
           defaultValue={data.contact.phone}
         />
         <Textarea
           variant="outlined"
           name="about"
           label="Resumen"
-          aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target, "EmploymentHistory")}
+          aria-roledescription="profile"
+          onChange={(e) => updateData(e.target, "employmentHistory")}
           defaultValue={data.employmentHistory.about}
         />
 
@@ -156,7 +156,7 @@ function Viewer() {
           name="text"
           className=""
           label="Tus habilidades"
-          onChange={(e) => updateData(e.target, "KeySkills")}
+          onChange={(e) => updateData(e.target, "keySkills")}
           defaultValue={data.keySkills.text}
         />
         <Button handleOnClick={handleOnClick} />
