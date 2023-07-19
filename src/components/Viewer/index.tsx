@@ -62,7 +62,7 @@ function Viewer() {
   }
 
   return (
-    <div className="flex w-screen h-screen bg-indigo-100">
+    <div className="flex w-screen h-screen bg-indigo-50">
       <div className="grid w-6/12 grid-cols-2 gap-1 mx-10 my-10 ">
         <Input
           variant="standard"
