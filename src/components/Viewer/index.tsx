@@ -62,11 +62,16 @@ function Viewer() {
     )
   };
 
+  async function handleOnClick() {
+    const res = await makePDF(data);
+    console.log(res);
+  }
+
   return (
     <div
-    className="w-screen h-screen flex gap-2  ">
-      <div className="w-6/12 justify-center  gap-3 flex gap flex-column py-10 px-10 ">
-        <div className="w-1/2 flex flex-col gap-10">
+    className="flex w-screen h-screen gap-2 ">
+      <div className="flex justify-center w-6/12 gap-3 px-10 py-10 gap flex-column ">
+        <div className="flex flex-col w-1/2 gap-10">
         <Input
           variant="standard" 
           className="max-w-[200px]"
@@ -89,7 +94,7 @@ function Viewer() {
           defaultValue={data.Profile.profileImageURL}
         />
         </div>
-        <div className="w-1/2 flex flex-col gap-10">
+        <div className="flex flex-col w-1/2 gap-10">
          <Input         
           variant="standard" 
           name="profession"

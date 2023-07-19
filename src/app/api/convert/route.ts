@@ -1,5 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import Handlebars from "handlebars";
+import { makePDF } from "@/utils/api";
+import { dataInfo } from "@/utils/data";
+
+export async function GET() {
+  const response = await makePDF(dataInfo);
+  const hbsCode =
+    "<p>Hello, my name is {{name}}. I am from {{hometown}}. I have " +
+    "{{kids.length}} kids:</p>" +
+    "<ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}</ul>";
+
+  return NextResponse.json({ response });
+}
 
 export async function POST(req: NextRequest) {
   try {
