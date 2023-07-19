@@ -4,8 +4,8 @@
 //   "<ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}</ul>";
 // <ul class="text-left">{{#contact.items}}<li>{{type}}: {{text}}</li>{{/contact.items}}</ul>
 export const hbsCode = `
-    <div class="max-w-[50%] h-full shadow-2xl py-5 flex flex-row">
-      <aside class="flex flex-col items-center w-screen gap-1 py-6 bg-green-700">
+    <div class="max-w-[50%] h-full shadow-2xl flex flex-row">
+      <aside class="flex flex-col items-center w-screen gap-1 py-6 bg-green-700 text-white">
       {{#with Profile as | profile |}}
         <section class="text-center flex flex-col items-center">
        

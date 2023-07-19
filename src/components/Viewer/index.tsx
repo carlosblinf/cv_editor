@@ -64,8 +64,8 @@ function Viewer() {
 
   return (
     <div
-    className="w-screen h-screen flex gap-2  ">
-      <div className="w-6/12 grid grid-cols-2 py-10 px-10 ">
+    className="w-screen h-screen flex  ">
+      <div className="w-6/12 grid grid-cols-2 py-10 px-10 bg-blue-gray-100">
         <Input
           variant="standard" 
           className="max-w-[200px]"
@@ -116,7 +116,7 @@ function Viewer() {
           onChange={(e) => updateData(e.target, 'Education')}
           defaultValue={data.Education.degree}
         />
-        
+
          <Input       
           variant="standard" 
           name="date"
@@ -160,7 +160,7 @@ function Viewer() {
          <Textarea         
           variant="standard" 
           name="about"
-          className="max-w-[200px]"
+          className="px-4"
 
           label="Resumen"
           
@@ -173,7 +173,7 @@ function Viewer() {
           <Textarea
           variant="standard" 
           name="text"
-          className="max-w-[200px]"
+          className="px-4"
           label="Tus habilidades"
           onChange={(e) => updateData(e.target, 'KeySkills')}
           defaultValue={data.KeySkills.text}
