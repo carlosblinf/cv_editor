@@ -9,7 +9,7 @@ export const hbsCode = `
       {{#with Profile as | profile |}}
         <section class="text-center flex flex-col items-center">
        
-          <img src="{{Profile.profileImageURL}}" class="rounded-full w-20 h-20 mb-4 bg-white"></img>
+          <img src="{{profile.profileImageURL}}" class="rounded-full w-20 h-20 mb-4 bg-white"></img>
 
           <h1 class="text-lg text-center">{{profile.name}}</h1>
           <span class="text-sm">{{profile.profession}}</span>
