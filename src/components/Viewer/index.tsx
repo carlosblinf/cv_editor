@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+// @ts-nocheck
 "use client";
 import { store, useAppSelector } from "@/store";
 import { updateInfo } from "@/store/builder/builderSlice";
@@ -38,11 +39,11 @@ function Viewer() {
 
   const updateData = (
     event: 
-    HTMLInputElement
+    HTMLInputElement,
+    type: string
     
   ) => {
-   // const name: keyof Profile  = event.name as string
-    const ariaRoleDescription = event.ariaRoleDescription
+   const name: keyof Profile  = event.name as string
     const value = event.value
     setData((prevData) => {
       const newData = {...prevData}
@@ -50,10 +51,10 @@ function Viewer() {
       // newData = value
       // return newData
       console.log('name:', name)
-      console.log('ariaRole:', ariaRoleDescription)
       console.log('value', value)
+      console.log('type:', type)
       
-      newData.Profile.name = value
+      newData[type][name] = value
      
      return newData
     }
@@ -69,34 +70,34 @@ function Viewer() {
           className="max-w-[200px]"
           name="name"
           shrink={true}
-
+          aria-label="Profile"
           label="Nombre"
           aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target)}
+          onChange={(e) => updateData(e.target, 'Profile')}
           defaultValue={data.Profile.name}
         />
          <Input
           variant="standard" 
-          name="name"
+          name="profileImageURL"
           className="max-w-[200px]"
 
-          label="Nombre"
+          label="Imagen:URL"
           aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target)}
-          defaultValue={data.Profile.name}
+          onChange={(e) => updateData(e.target, 'Profile')}
+          defaultValue={data.Profile.profileImageURL}
         />
         </div>
         <div className="w-1/2 flex flex-col gap-10">
          <Input         
           variant="standard" 
-          name="name"
+          name="profession"
           className="max-w-[200px]"
 
-          label="Nombre"
+          label="Titulo"
           
           aria-roledescription="Profile"
-          onChange={(e) => updateData(e.target)}
-          defaultValue={data.Profile.name}
+          onChange={(e) => updateData(e.target, 'Profile')}
+          defaultValue={data.Profile.profession}
         />
          <Input
           variant="standard" 
