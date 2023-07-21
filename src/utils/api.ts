@@ -18,8 +18,8 @@ export async function makePDF(data: any, title: string = "SamplePDF") {
       alink.href = fileURL;
       alink.download = `${title}.pdf`;
       alink.click();
+      console.log("first");
     });
   });
-  console.log("first");
   return "ok";
 }

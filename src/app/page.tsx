@@ -3,7 +3,7 @@ import Viewer from "../components/Viewer";
 
 export default function Home() {
   return (
-    <main>
+    <main className="h-screen">
       {/* <Builder /> */}
       <Viewer />
     </main>
