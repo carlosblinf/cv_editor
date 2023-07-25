@@ -394,7 +394,7 @@ function Builder() {
   // }, [jsx, currentPage]);
 
   return (
-    <div className="flex w-screen h-screen bg-indigo-50">
+    <div className="flex h-screen bg-indigo-50">
       <div className="grid w-1/2 grid-cols-2 gap-1 mx-10 my-10 ">
         {/* <Input
           variant="standard"

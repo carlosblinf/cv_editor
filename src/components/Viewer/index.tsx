@@ -240,6 +240,8 @@ function Viewer({ pages, setPages }: ViewerProps) {
     switch (param) {
       case "Employment":
         return <Employment data={data} />;
+      case "Education":
+        return <Education data={data} />;
       case "KeySkills":
         return <Skills data={data} />;
       case "Libre":
@@ -254,18 +256,17 @@ function Viewer({ pages, setPages }: ViewerProps) {
         <div
           ref={(el) => (pageRefs.current[index] = el)}
           key={page.id}
-          className="min-h-[1094px] h-full shadow-3xl mr-5 -px-10 -py-10 bg-white page flex"
+          className="min-h-[1094px] h-full shadow-3xl mr-5 -px-10 -py-10 bg-white page grid grid-cols-6"
         >
-          <aside className="flex flex-col items-center gap-1 px-2 py-6 text-white bg-green-700 box basis-2/6">
+          <aside className="flex flex-col items-center gap-1 px-2 py-6 text-white bg-green-700 box col-span-2 flex-grow-0 flex-shrink-0 min-h-0">
             {page.elements.map((inf, index) => (
-              <div key={index}>
+              <div className="w-full" key={index}>
                 {inf.type === "Profile" && <Profile data={inf} />}
-                {inf.type === "Education" && <Education data={inf} />}
                 {inf.type === "Contact" && <Contact data={inf} />}
               </div>
             ))}
           </aside>
-          <main className="flex flex-col px-8 py-6 text-black bg-white element basis-4/6 flex-grow-0 flex-shrink-0 min-h-0">
+          <main className="flex flex-col px-8 py-6 whitespace-pre-line text-black bg-white element col-span-4 flex-grow-0 flex-shrink-0 min-h-0">
             {page.elements.map((inf, index) => (
               <div key={index}>{renderSwitch(inf.type, inf)}</div>
             ))}

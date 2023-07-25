@@ -13,21 +13,6 @@ export const dataInfo: InfoComponent[] = [
     about:
       "Recent college graduate with experience in various areas of software engineering, including infrastructure and data analytics. A fast learner who thrives on generating innovative ideas, trouble-shooting and problem-solving, and working with object-oriented programming languages including Python and Java. ",
   },
-
-  {
-    header: "Education",
-    type: "Education",
-    degree: "Software Engineering - University of Sydney",
-    date: "Mar 2017 - Dec 2019",
-    position: "right",
-    display: true,
-    items: [
-      {
-        degree: "Software Engineering - University of Sydney",
-        date: "Mar 2017 - Dec 2019",
-      },
-    ],
-  },
   {
     header: "Contact",
     type: "Contact",
@@ -72,6 +57,20 @@ export const dataInfo: InfoComponent[] = [
           "Bank of E Network is a Banking Financial Institution in the US.\nAs a Software Developer, I work on their banking platform in an Agile environment.\n My daily responsibilities include: ",
         responsibilities:
           "• Built RESTful API that served data to the JavaScript front-end based on \n   dynamicially chosen user inputs that handled over 100,000 concurrent users.\n • Built international tool using NodeJS and Pupeteer.js to automate QA. \n• Conducting code peer reviews with other members in my team\n• Documenting all code changes ",
+      },
+    ],
+  },
+  {
+    header: "Education",
+    type: "Education",
+    degree: "Software Engineering - University of Sydney",
+    date: "Mar 2017 - Dec 2019",
+    position: "right",
+    display: true,
+    items: [
+      {
+        degree: "Software Engineering - University of Sydney",
+        date: "Mar 2017 - Dec 2019",
       },
     ],
   },
