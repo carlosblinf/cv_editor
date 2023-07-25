@@ -1,24 +1,21 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-"use client";
-import { store, useAppSelector } from "@/store";
-import { updateInfo } from "@/store/builder/builderSlice";
-import { render } from "./helper";
-import useDebounce from "../../utils/debounce";
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useEffect, useRef } from "react";
-import Profile from "./components/Profile";
-import Education from "./components/Education";
-import Contact from "./components/Contact";
-import Employment from "./components/Employment";
-import Skills from "./components/Skills";
-import { InfoComponent, Page } from "../../utils/types";
-import Default from "./components/Default";
+import Profile from "./Profile";
+import Education from "./Education";
+import Contact from "./Contact";
+import Employment from "./Employment";
+import Skills from "./Skills";
+import { InfoComponent, Page } from "../types";
+import Default from "./Default";
 
 type ViewerProps = {
   pages: Page[];
   setPages: (value: React.SetStateAction<Page[]>) => void;
 };
 
-const PAGE_HEIGT = 1094;
+const PAGE_HEIGT = 642;
 
 function Viewer({ pages, setPages }: ViewerProps) {
   const pageRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -249,12 +246,15 @@ function Viewer({ pages, setPages }: ViewerProps) {
     }
   }
   return (
-    <>
+    <div className="flex flex-col layout">
+      <div>
+        <h1>Viewer</h1>
+      </div>
       {pages.map((page, index) => (
         <div
           ref={(el) => (pageRefs.current[index] = el)}
           key={page.id}
-          className="min-h-[1094px] h-full shadow-3xl mr-5 -px-10 -py-10 bg-white page flex"
+          className="w-[595px] min-h-[600px] max-h-[642px] shadow-3xl my-5 mr-5 -px-10 -py-10 bg-white page flex"
         >
           <aside className="flex flex-col items-center gap-1 px-2 py-6 text-white bg-green-700 box basis-2/6">
             {page.elements.map((inf, index) => (
@@ -272,7 +272,7 @@ function Viewer({ pages, setPages }: ViewerProps) {
           </main>
         </div>
       ))}
-    </>
+    </div>
   );
 }
 

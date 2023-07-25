@@ -18,8 +18,7 @@
   overflow-y: auto;
 } */
 
-main 
-.document {
+main .document {
   word-wrap: break-word;
 }
 
@@ -44,4 +43,12 @@ main {
   /* display: flex; */
   border: 1px solid blue;
   /* overflow-y: hidden; */
+}
+
+.no-break-inside {
+  break-inside: "avoid";
+}
+
+.break-before {
+  break-before: "always";
 }

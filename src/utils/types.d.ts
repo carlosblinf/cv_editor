@@ -14,17 +14,24 @@ export type Item = {
   responsibilities?: string;
 };
 export type InfoComponent = {
-  type?: string;
+  type: string;
   name?: string;
   profession?: string;
   profileImageURL?: string;
-  display?: boolean;
+  display: boolean;
+  phone?: string;
+  email?: string;
+  cite?: string;
   about?: string;
-  header?: string;
+  header: string;
+  degree?: string;
+  date?: string;
   items?: Item[];
   text?: string;
+  position: "left" | "right";
 };
 
-export type StateInfo = {
-  components: InfoComponent[];
+export type Page = {
+  id: number;
+  elements: InfoComponent[];
 };
