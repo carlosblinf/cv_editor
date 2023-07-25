@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 // import { BuilderContextProvider } from "@/utils/BuilderContext";
 import Viewer from "../Viewer";
 import { Input, Textarea } from "@material-tailwind/react";
-import { InfoComponent, Page } from "@/utils/types";
+import { InfoComponent, Page } from "../../utils/types";
 import { info } from "@/utils/data";
 import Button from "../Button";
 import { renderToString } from "react-dom/server";
