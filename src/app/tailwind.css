@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* .document {
   width: 800px; 
   height: 600px; 
@@ -32,11 +31,10 @@ main .document {
   margin-bottom: 20px;
   overflow-y: hidden;
   /* flex-direction: column; */
-  font-family: ;
 }
-h1 {
+/* h1 {
   font-family: "Times New Roman", Times, serif;
-}
+} */
 aside {
   /* display: flex; */
   height: auto;
