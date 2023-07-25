@@ -510,7 +510,7 @@ function Builder() {
       </div>
       <div
         id="document"
-        className="w-1/2 overflow-y-scroll h-screen document"
+        className="w-1/2 overflow-y-scroll min-h-screen document"
         ref={documentRef}
       >
         <Viewer pages={pages} setPages={setPages} />
