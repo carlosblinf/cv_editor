@@ -20,4 +20,4 @@ jobs:
                       cd ~/apps/handlerbartojsx/
                       git pull
                       docker build -t cvcrea_demo .
-                      docker run -dp 3000:3001 cvcrea_demo
+                      docker run -dp 3001:3001 cvcrea_demo
