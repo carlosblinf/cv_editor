@@ -55,3 +55,20 @@ main {
 .break-before {
   break-before: "always";
 }
+.pagina {
+  padding: 5px;
+  page-break-inside: avoid;
+  height: 200px;
+}
+
+.vista-previa {
+  background: white;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+  padding: 2cm;
+}
+
+@media print {
+  .vista-previa {
+    page-break-after: always;
+  }
+}

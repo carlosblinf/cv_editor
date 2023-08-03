@@ -256,7 +256,7 @@ function Viewer({ pages, setPages }: ViewerProps) {
         <div
           ref={(el) => (pageRefs.current[index] = el)}
           key={page.id}
-          className="min-h-[1094px] h-full shadow-3xl mr-5 -px-10 -py-10 bg-white page grid grid-cols-6"
+          className="min-h-[1094px] h-full shadow-3xl mr-5 -px-10 -py-10 bg-white page grid grid-cols-6 break-words"
         >
           <aside className="flex flex-col items-center gap-1 px-2 py-6 text-white bg-green-700 box col-span-2 flex-grow-0 flex-shrink-0 min-h-0">
             {page.elements.map((inf, index) => (
