@@ -1,0 +1,23 @@
+name: Build and Deploy
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+jobs:
+    build-and-deploy:
+        name: Build and Deploy
+        runs-on: ubuntu-latest
+        steps:
+            - name: download changes, build and run containers
+              uses: appleboy/ssh-action@v0.1.7
+              with:
+                  host: ${{ secrets.HOST }}
+                  username: ${{ secrets.USERNAME }}
+                  key: ${{ secrets.KEY }}
+                  passphrase: ${{ secrets.PASSPHRASE }}
+                  script: |
+                      cd apps/cvcrea_demo
+                      git pull
+                      docker build -t cvcrea_demo .
+                      docker run -dp 3000:3001 cvcrea_demo
