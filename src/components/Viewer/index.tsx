@@ -235,8 +235,10 @@ function Viewer({ pages, setPages }: ViewerProps) {
     return pages;
   }
 
-  function renderSwitch(param: string, data: InfoComponent) {
-    switch (param) {
+  function renderSwitchComponent(type: string, data: InfoComponent) {
+    if (!data.display) return null;
+
+    switch (type) {
       case "Employment":
         return <Employment data={data} />;
       case "Education":
@@ -267,7 +269,7 @@ function Viewer({ pages, setPages }: ViewerProps) {
           </aside>
           <main className="flex flex-col px-8 py-6 whitespace-pre-line text-black bg-white element col-span-4 h-min">
             {page.elements.map((inf, index) => (
-              <div key={index}>{renderSwitch(inf.type, inf)}</div>
+              <div key={index}>{renderSwitchComponent(inf.type, inf)}</div>
             ))}
           </main>
         </div>
