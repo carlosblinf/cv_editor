@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // import { BuilderContextProvider } from "@/utils/BuilderContext";
 import Viewer from "../Viewer";
 import { Input, Textarea } from "@material-tailwind/react";
@@ -11,6 +11,18 @@ import { renderToString } from "react-dom/server";
 function Builder() {
   const documentRef = useRef<HTMLDivElement>(null);
   const [pages, setPages] = useState<Page[]>(info);
+  const [scale, setScale] = useState<number>(90);
+
+  function zoomUp() {
+    if (scale <= 85) {
+      setScale((prev) => prev + 5);
+    }
+  }
+  function zoomDown() {
+    if (scale >= 55) {
+      setScale((prev) => prev - 5);
+    }
+  }
 
   // const addElement = (element: ElementType) => {
   //   // Comprobamos si la última página tiene suficiente espacio para el nuevo elemento
@@ -121,6 +133,7 @@ function Builder() {
   ) {
     const foundElement = findElementByTypeInPages(pages, type);
     if (foundElement) {
+      console.log(type, field, value);
       return updateFieldInElement(pages, type, field, value);
     } else {
       const newElement: InfoComponent = {
@@ -159,6 +172,19 @@ function Builder() {
     console.log("valuesss", value.length, value);
     // }
     const updatedPages = inserNewElement(type, name, value);
+    // const devo = useDebounce(inserNewElement(type, name, value), 750);
+    // console.log("devo", devo);
+    setPages(updatedPages);
+    // console.log(pages);
+
+    // if (updatedPages) {
+    //   setPages(updatedPages);
+    // }
+  }
+  function handleChangeCheckbox(type: string, value: boolean) {
+    // if (name === "about") {
+    // }
+    const updatedPages = inserNewElement(type, "display", value);
     // const devo = useDebounce(inserNewElement(type, name, value), 750);
     // console.log("devo", devo);
     setPages(updatedPages);
@@ -506,6 +532,38 @@ function Builder() {
           onChange={(e) => updateData(e.target, "KeySkills")}
           defaultValue={getFieldElementInPage("KeySkills")?.text}
         />
+        <div className="flex gap-4">
+          <input
+            type="checkbox"
+            className="w-5 h-5"
+            defaultChecked={getFieldElementInPage("Employment")?.display}
+            onChange={() =>
+              console.log(
+                handleChangeCheckbox(
+                  "Employment",
+                  !getFieldElementInPage("Employment")?.display
+                )
+              )
+            }
+          />
+          <span>Resumen</span>
+        </div>
+        <div className="flex gap-4">
+          <input
+            type="checkbox"
+            className="w-5 h-5"
+            defaultChecked={getFieldElementInPage("KeySkills")?.display}
+            onChange={() =>
+              console.log(
+                handleChangeCheckbox(
+                  "KeySkills",
+                  !getFieldElementInPage("KeySkills")?.display
+                )
+              )
+            }
+          />
+          <span>Habilidades</span>
+        </div>
         <Button handleOnClick={handleOnClick} />
       </div>
       <div
@@ -513,13 +571,26 @@ function Builder() {
         className="w-1/2 min-h-screen relative"
         ref={documentRef}
       >
-        <div className="overflow-y-scroll h-full document scale-[90%] mt-4 pl-2 pt-2 bg-gray-600">
+        <div
+          className="overflow-y-scroll h-full document mt-4 pl-2 pt-2 bg-gray-600"
+          style={{ scale: `${scale}%` }}
+        >
           <Viewer pages={pages} setPages={setPages} />
         </div>
         <div className="absolute top-2 left-[40%] w-[200px] text-center">
           <div className="flex gap-5 justify-center">
-            <button className="bg-white w-6 h-6 rounded ">-</button>
-            <button className="bg-white w-6 h-6 rounded ">+</button>
+            <button
+              className="bg-white w-6 h-6 rounded "
+              onClick={() => zoomDown()}
+            >
+              -
+            </button>
+            <button
+              className="bg-white w-6 h-6 rounded "
+              onClick={() => zoomUp()}
+            >
+              +
+            </button>
           </div>
         </div>
       </div>
