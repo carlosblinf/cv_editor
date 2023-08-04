@@ -19,7 +19,7 @@ function Builder() {
     }
   }
   function zoomDown() {
-    if (scale >= 55) {
+    if (scale >= 45) {
       setScale((prev) => prev - 5);
     }
   }
@@ -585,6 +585,7 @@ function Builder() {
             >
               -
             </button>
+            <span className="bg-blue-800 w-6 h-6 rounded">{scale + 10}%</span>
             <button
               className="bg-white w-6 h-6 rounded "
               onClick={() => zoomUp()}
