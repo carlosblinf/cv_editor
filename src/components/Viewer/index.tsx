@@ -48,6 +48,7 @@ function Viewer({ pages, setPages }: ViewerProps) {
         for (const elemento of elementosInternosDerecha) {
           currentPageHeight += elemento.scrollHeight;
         }
+        console.log("currentPageHeight", currentPageHeight);
         // const currentPageHeight = pageDom.getBoundingClientRect().height;
         // const currentPageHeight1 = pageDom.scrollHeight;
         if (currentPageHeight > PAGE_HEIGT && i + 1 >= updatedPages.length) {
@@ -231,12 +232,10 @@ function Viewer({ pages, setPages }: ViewerProps) {
       // Eliminar la última página de la matriz de páginas
       pages.pop();
     }
-    console.log("pagesup", pages);
     return pages;
   }
 
   function renderSwitch(param: string, data: InfoComponent) {
-    console.log("first");
     switch (param) {
       case "Employment":
         return <Employment data={data} />;
@@ -258,7 +257,7 @@ function Viewer({ pages, setPages }: ViewerProps) {
           key={page.id}
           className="min-h-[1094px] h-full shadow-3xl mr-5 -px-10 -py-10 bg-white page grid grid-cols-6 break-words"
         >
-          <aside className="flex flex-col items-center gap-1 px-2 py-6 text-white bg-green-700 box col-span-2 flex-grow-0 flex-shrink-0 min-h-0">
+          <aside className="flex flex-col items-center gap-1 px-2 py-6 text-white bg-green-700 box col-span-2">
             {page.elements.map((inf, index) => (
               <div className="w-full" key={index}>
                 {inf.type === "Profile" && <Profile data={inf} />}
@@ -266,7 +265,7 @@ function Viewer({ pages, setPages }: ViewerProps) {
               </div>
             ))}
           </aside>
-          <main className="flex flex-col px-8 py-6 whitespace-pre-line text-black bg-white element col-span-4 flex-grow-0 flex-shrink-0 min-h-0">
+          <main className="flex flex-col px-8 py-6 whitespace-pre-line text-black bg-white element col-span-4 h-min">
             {page.elements.map((inf, index) => (
               <div key={index}>{renderSwitch(inf.type, inf)}</div>
             ))}

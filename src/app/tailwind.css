@@ -35,18 +35,6 @@ main .document {
 /* h1 {
   font-family: "Times New Roman", Times, serif;
 } */
-aside {
-  /* display: flex; */
-  height: auto;
-  border: 1px solid red;
-  /* overflow-y: hidden; */
-}
-main {
-  height: auto;
-  /* display: flex; */
-  border: 1px solid blue;
-  /* overflow-y: hidden; */
-}
 
 .no-break-inside {
   break-inside: "avoid";
