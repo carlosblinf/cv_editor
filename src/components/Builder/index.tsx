@@ -568,26 +568,26 @@ function Builder() {
       </div>
       <div
         id="document"
-        className="w-1/2 min-h-screen relative"
+        className="relative w-1/2 min-h-screen"
         ref={documentRef}
       >
         <div
-          className="overflow-y-scroll h-full document mt-4 pl-2 pt-2 bg-gray-600"
+          className="h-full pt-2 pl-2 mt-4 overflow-y-scroll bg-gray-600 document"
           style={{ scale: `${scale}%` }}
         >
           <Viewer pages={pages} setPages={setPages} />
         </div>
         <div className="absolute top-2 left-[40%] w-[200px] text-center">
-          <div className="flex gap-5 justify-center">
+          <div className="flex justify-center gap-5">
             <button
-              className="bg-white w-6 h-6 rounded "
+              className="w-6 h-6 bg-white rounded "
               onClick={() => zoomDown()}
             >
               -
             </button>
-            <span className="bg-blue-800 w-6 h-6 rounded">{scale + 10}%</span>
+            <span className="w-12 h-6 bg-blue-800 rounded">{scale + 10}%</span>
             <button
-              className="bg-white w-6 h-6 rounded "
+              className="w-6 h-6 bg-white rounded "
               onClick={() => zoomUp()}
             >
               +
