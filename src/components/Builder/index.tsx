@@ -510,10 +510,18 @@ function Builder() {
       </div>
       <div
         id="document"
-        className="w-1/2 overflow-y-scroll min-h-screen document"
+        className="w-1/2 min-h-screen relative"
         ref={documentRef}
       >
-        <Viewer pages={pages} setPages={setPages} />
+        <div className="overflow-y-scroll h-full document scale-[90%] mt-4 pl-2 pt-2 bg-gray-600">
+          <Viewer pages={pages} setPages={setPages} />
+        </div>
+        <div className="absolute top-2 left-[40%] w-[200px] text-center">
+          <div className="flex gap-5 justify-center">
+            <button className="bg-white w-6 h-6 rounded ">-</button>
+            <button className="bg-white w-6 h-6 rounded ">+</button>
+          </div>
+        </div>
       </div>
     </div>
   );
